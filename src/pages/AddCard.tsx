@@ -1,7 +1,14 @@
-type Props = {};
+import BackButton from "../components/Button/BackButton";
 
-const AddCard = (props: Props) => {
-  return <div>AddCard</div>;
+
+
+const AddCard = () => {
+  return (
+    <>
+    <h1>ADD CARD</h1>
+    <BackButton />
+    </>
+  )
 };
 
 export default AddCard;

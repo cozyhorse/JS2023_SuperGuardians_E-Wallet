@@ -1,9 +1,12 @@
-type Props = {};
+import AddACard from "../components/Button/Add-A-Card";
 
-const Wallet = (props: Props) => {
+
+
+const Wallet = () => {
   return (
     <>
-      <button>ADD A NEW CARD</button>
+      <h1>Wallet</h1>
+      <AddACard />
     </>
   );
 };
