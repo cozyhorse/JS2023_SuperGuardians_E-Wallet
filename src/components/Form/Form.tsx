@@ -34,6 +34,8 @@ const Form = () => {
             type="text"
             value={formData.cardnumber}
             onChange={handleChange}
+            inputMode="numeric"
+            pattern="[0-9\s]{13,19}"
           />
         </section>
         <section>
@@ -42,6 +44,7 @@ const Form = () => {
             id="cardholder"
             name="cardholder"
             type="text"
+            pattern="^[A-Za-z\s]*$"
             value={formData.cardholder}
             onChange={handleChange}
           />
