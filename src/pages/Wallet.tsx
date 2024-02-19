@@ -7,7 +7,7 @@ const Wallet = () => {
     <Card
       key={card.id}
       id={card.id}
-      cardnumber={card.cardNumber}
+      cardnumber={card.cardnumber}
       cardholder={card.cardholder}
       date={card.date}
       vendor={card.vendor}
