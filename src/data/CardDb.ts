@@ -1,3 +1,5 @@
 // import { Card } from "../constants/Constants.tsx";
 
-export const cardDb = [];
+import { CardType } from "../constants/Constants";
+
+export const cardDb: CardType[] = [];

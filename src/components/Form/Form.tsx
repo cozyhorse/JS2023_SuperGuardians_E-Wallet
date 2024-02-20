@@ -1,5 +1,5 @@
 import "./Form.scss";
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 // import { Card } from "../../constants/Constants";
 import { cardDb } from "../../data/CardDb";
 
@@ -12,11 +12,11 @@ const Form = () => {
     vendor: "blockchain",
   });
 
-  const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
+  const handleChange = (event: SyntheticEvent) => {
+    setFormData({ ...formData, [(event.target as HTMLInputElement).name]: (event.target as HTMLInputElement).value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
    // console.log("formData", formData);
 

@@ -8,6 +8,9 @@ export type CardType =
     ccv: string;
     date: number | string;
     vendor: string;
+    backgroundColor: string;
+    color: string;
+    zIndex: number;
   };
 
   export type props = {
