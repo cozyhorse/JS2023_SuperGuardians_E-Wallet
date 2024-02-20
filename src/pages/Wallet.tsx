@@ -1,6 +1,7 @@
 import AddACard from "../components/Button/Add-A-Card";
 import Card from "../components/Card/Card";
 import { cardDb } from "../data/CardDb";
+import "./Wallet.scss";
 
 const Wallet = () => {
   const cards = cardDb.map((card) => (

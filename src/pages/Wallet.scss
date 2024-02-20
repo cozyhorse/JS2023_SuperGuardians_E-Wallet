@@ -1,7 +1,9 @@
-.cardStack {
-  position: relative;
+.cardStack .card-container {
+  height: 60px;
+  overflow: hidden;
+  border-radius: 0px;
 }
-
-.cardStack div {
-  position: absolute;
+.cardStack .card-container:last-child {
+  height: auto;
+  border-radius: 5px;
 }
