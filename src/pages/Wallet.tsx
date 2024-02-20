@@ -10,14 +10,14 @@ import { useState } from "react";
 
 const Wallet = () => {
   const [newCards, setCards] = useState(cardDb);
-  const getActiveCard =(cardId) => {
-    activeCardDb.push(cardId);
+  const getActiveCard =(cardId, card) => {
+    activeCardDb.push(card);
     const updatedCards = newCards.filter((card) => card.id !== cardId)
     setCards(updatedCards);
-    console.log(activeCardDb);
-    console.log(updatedCards)
+    console.log("active card db", activeCardDb);
+    console.log("updated cards", updatedCards)
     if (activeCardDb.length === 1) {   // Skicka bort / tillbaka det aktiva kortet
-      
+      // byta ut objekt mot nytt objekt och skicka tillbak adet gamla objektet
     }
   };
 
@@ -31,11 +31,12 @@ const Wallet = () => {
       vendor={card.vendor}
       color={card.color}
       backgroundColor={card.backgroundColor}
-      onClick={()=> getActiveCard(card.id)}
+      onClick={()=> getActiveCard(card.id, card)}
     />
   ));
 
-  const activeCards = activeCardDb.map((card) => (
+  
+  const activeCard = activeCardDb.map((card) => (
     <Card
       key={card.id}
       id={card.id}
@@ -45,14 +46,16 @@ const Wallet = () => {
       vendor={card.vendor}
       color={card.color}
       backgroundColor={card.backgroundColor}
-      onClick={()=> getActiveCard(card.id)}
+      onClick={()=> getActiveCard(card.id, card)}
     />
   ));
+
   return (
     <>
       <h1>Wallet</h1>
-      <div className="activeCard">{activeCards}</div>
+      <div className="activeCard">{activeCard}</div>
       <div className="cardStack">{cards}</div>
+
       <AddACard />
     </>
   );

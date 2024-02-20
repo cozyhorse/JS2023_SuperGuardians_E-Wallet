@@ -18,7 +18,7 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("formData", formData);
+   // console.log("formData", formData);
 
     let backgroundColor = "";
     let color = "";
