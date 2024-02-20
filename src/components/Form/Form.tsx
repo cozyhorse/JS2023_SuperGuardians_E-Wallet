@@ -5,7 +5,7 @@ import { cardDb } from "../../data/CardDb";
 
 const Form = () => {
   const [formData, setFormData] = useState({
-    cardnumber:"",
+    cardnumber: "",
     cardholder: "",
     ccv: "",
     date: "",
@@ -20,23 +20,29 @@ const Form = () => {
     e.preventDefault();
     console.log("formData", formData);
 
-   let backgroundColor ="" ;
-   let color = "";
-   if (formData.vendor === "bitcoin") {
-    backgroundColor = "rgba(255, 174, 52, 1)";
-    color = "black";
-   } else if (formData.vendor === "ninjabank") {
-    backgroundColor = "rgba(34, 34, 34, 1)";
-    color = "white";
-   } else if (formData.vendor === "blockchain") {
-    backgroundColor = "rgba(139, 88, 249, 1)";
-    color = "white";
-   } else {
-    backgroundColor = "rgba(243, 51, 85, 1)";
-    color = "white";
-  }
+    let backgroundColor = "";
+    let color = "";
+    if (formData.vendor === "bitcoin") {
+      backgroundColor = "rgba(255, 174, 52, 1)";
+      color = "black";
+    } else if (formData.vendor === "ninjabank") {
+      backgroundColor = "rgba(34, 34, 34, 1)";
+      color = "white";
+    } else if (formData.vendor === "blockchain") {
+      backgroundColor = "rgba(139, 88, 249, 1)";
+      color = "white";
+    } else {
+      backgroundColor = "rgba(243, 51, 85, 1)";
+      color = "white";
+    }
 
-    cardDb.push({ ...formData, id: cardDb.length + 1, backgroundColor: backgroundColor, color: color});
+    cardDb.push({
+      ...formData,
+      id: cardDb.length + 1,
+      backgroundColor: backgroundColor,
+      color: color,
+      zIndex: cardDb.length + 1,
+    });
     console.log("cardDb", cardDb);
   };
 
