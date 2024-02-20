@@ -31,14 +31,27 @@ const Wallet = () => {
       vendor={card.vendor}
       color={card.color}
       backgroundColor={card.backgroundColor}
-      onClick={()=> getActiveCard(card)}
+      onClick={()=> getActiveCard(card.id)}
     />
   ));
 
+  const activeCards = activeCardDb.map((card) => (
+    <Card
+      key={card.id}
+      id={card.id}
+      cardnumber={card.cardnumber}
+      cardholder={card.cardholder}
+      date={card.date}
+      vendor={card.vendor}
+      color={card.color}
+      backgroundColor={card.backgroundColor}
+      onClick={()=> getActiveCard(card.id)}
+    />
+  ));
   return (
     <>
       <h1>Wallet</h1>
-      <div className="activeCard">HÄR SKA AKTIVA KORTET LIGGA</div>
+      <div className="activeCard">{activeCards}</div>
       <div className="cardStack">{cards}</div>
       <AddACard />
     </>
