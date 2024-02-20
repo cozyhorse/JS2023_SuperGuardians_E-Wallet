@@ -4,9 +4,9 @@ import Group from "../../assets/img/Group.svg";
 import Subtract from "../../assets/img/Subtract.svg";
 import "./Card.scss"
 
-const Card = ({ id, cardnumber, cardholder, date, vendor }) => {
+const Card = ({ id, cardnumber, cardholder, date, vendor, color, backgroundColor }) => {
   return (
-    <div className="card-container" key={id}>
+    <div className="card-container" key={id} style={{backgroundColor: backgroundColor, color: color}}>
       <div className="card-container__row">
         <div>
           <img src={BitcoinLogo} alt="" />

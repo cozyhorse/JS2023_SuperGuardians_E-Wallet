@@ -19,7 +19,24 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("formData", formData);
-    cardDb.push({ ...formData, id: cardDb.length + 1 });
+
+   let backgroundColor ="" ;
+   let color = "";
+   if (formData.vendor === "bitcoin") {
+    backgroundColor = "rgba(255, 174, 52, 1)";
+    color = "black";
+   } else if (formData.vendor === "ninjabank") {
+    backgroundColor = "rgba(34, 34, 34, 1)";
+    color = "white";
+   } else if (formData.vendor === "blockchain") {
+    backgroundColor = "rgba(139, 88, 249, 1)";
+    color = "white";
+   } else {
+    backgroundColor = "rgba(243, 51, 85, 1)";
+    color = "white";
+  }
+
+    cardDb.push({ ...formData, id: cardDb.length + 1, backgroundColor: backgroundColor, color: color});
     console.log("cardDb", cardDb);
   };
 
@@ -44,7 +61,7 @@ const Form = () => {
             id="cardholder"
             name="cardholder"
             type="text"
-            pattern="^[A-Za-z\s]*$"
+            pattern="^[A-Za-zÅÄÖåäö\s]*$" // Reg ex
             value={formData.cardholder}
             onChange={handleChange}
           />
