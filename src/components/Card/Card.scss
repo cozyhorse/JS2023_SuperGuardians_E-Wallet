@@ -1,62 +1,69 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Mono:300;);
 
 .card-container {
+  display: flex;
+  flex-direction: column;
+  width: 382px;
+  height: 241px;
+  top: 138px;
+  left: 16px;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.12);
+  gap: 1.2rem;
+  .card-container__row {
     display: flex;
-    flex-direction: column;
-    width: 382px;
-    height: 241px;
-    top: 138px;
-    left: 16px;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.12);
-    gap: 1.2rem;
-    .card-container__row {
-        display: flex;
-        justify-content: space-between;
-    }
+    justify-content: space-between;
+  }
 }
 
 img {
-    width: 27.6px;
-    height: auto;
-    }
+  width: 27.6px;
+  height: auto;
+}
 
-.chip {
-    display: flex;
+.icon {
+  width: 45px;
+  height: auto;
+  opacity: 30%;
+  margin-top: -0.4rem;
+}
+
+.chip img {
+  width: 60px;
+  height: auto;
 }
 
 .card-number {
-    display: flex;
-    flex: 1; 
-    font-size: 1.813rem;
-    font-weight: 400;
-    line-height: 2rem;
-    letter-spacing: 0.04em;
+  display: flex;
+  flex: 1;
+  font-size: 1.813rem;
+  font-weight: 400;
+  line-height: 2rem;
+  letter-spacing: 0.04em;
 
-    font-family: "PT Mono", monospace;
+  font-family: "PT Mono", monospace;
 }
 
 .card-container__column {
-    display: flex;
-    flex-direction: column;
-    align-items: space-between;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
 }
 
 .date {
-    text-align: right;
+  text-align: right;
 }
 
 .cardHolder-Opacity {
-   opacity: 0.8;
-    font-family: "PT Mono", monospace;
-    font-size: 0.75rem;
-    line-height: 13.44px;
+  opacity: 0.8;
+  font-family: "PT Mono", monospace;
+  font-size: 0.75rem;
+  line-height: 13.44px;
 }
 
 .card-text-style {
-    font-family: "PT Mono", monospace;
-    font-size: 18px;
-    line-height: 20.16px;
+  font-family: "PT Mono", monospace;
+  font-size: 18px;
+  line-height: 20.16px;
 }
-
