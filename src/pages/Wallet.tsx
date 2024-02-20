@@ -4,24 +4,25 @@ import { cardDb } from "../data/CardDb";
 import "./Wallet.scss";
 import { activeCardDb } from "../data/ActiveCardDb";
 import { useState } from "react";
+import { props } from "../constants/Constants";
 
 
 
 
 const Wallet = () => {
   const [newCards, setCards] = useState(cardDb);
-  const getActiveCard =(cardId, card) => {
+  const getActiveCard =(cardId: number, card: object) => {
     activeCardDb.push(card);
-    const updatedCards = newCards.filter((card) => card.id !== cardId)
+    const updatedCards = newCards.filter((card: props) => card.id !== cardId)
     setCards(updatedCards);
     console.log("active card db", activeCardDb);
     console.log("updated cards", updatedCards)
-    if (activeCardDb.length === 1) {   // Skicka bort / tillbaka det aktiva kortet
+    if (activeCardDb.length >= 1) {   // Skicka bort / tillbaka det aktiva kortet
       // byta ut objekt mot nytt objekt och skicka tillbak adet gamla objektet
     }
   };
 
-  const cards = newCards.map((card) => (
+  const cards = newCards.map((card: props) => (
     <Card
       key={card.id}
       id={card.id}
@@ -30,13 +31,14 @@ const Wallet = () => {
       date={card.date}
       vendor={card.vendor}
       color={card.color}
+      ccv={card.ccv}
       backgroundColor={card.backgroundColor}
       onClick={()=> getActiveCard(card.id, card)}
     />
   ));
 
   
-  const activeCard = activeCardDb.map((card) => (
+  const activeCard = activeCardDb.map((card: props) => (
     <Card
       key={card.id}
       id={card.id}
@@ -44,6 +46,7 @@ const Wallet = () => {
       cardholder={card.cardholder}
       date={card.date}
       vendor={card.vendor}
+      ccv={card.ccv}
       color={card.color}
       backgroundColor={card.backgroundColor}
       onClick={()=> getActiveCard(card.id, card)}

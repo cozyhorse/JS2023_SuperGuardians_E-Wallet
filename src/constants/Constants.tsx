@@ -1,30 +1,23 @@
-export const addedCards = [
-  {
-    id: 1,
-    cardNumber: "XXXX XXXX XXXX XXXX",
-    firstName: "FIRSTNAME",
-    lastName: "LASTNAME",
-    ccv: "CCV",
-    expirationDate: "MM/YY",
-    vendor: "IMG",
-  },
-  {
-    id: 2,
-    cardNumber: "XXXX XXXX XXXX XXXX",
-    firstName: "FIRSTNAME",
-    lastName: "LASTNAME",
-    ccv: "CCV",
-    expirationDate: "MM/YY",
-    vendor: "IMG",
-  },
-];
+import { MouseEventHandler } from "react";
 
-export type Card = [
+export type CardType =
   {
+    id: number
     cardnumber: string;
     cardholder: string;
     ccv: string;
     date: number | string;
     vendor: string;
-  }
-];
+  };
+
+  export type props = {
+    id: number
+    cardnumber: string;
+    cardholder: string;
+    ccv: number;
+    date: number | string;
+    vendor: string;
+    color: string;
+    backgroundColor: string;
+    onClick: MouseEventHandler
+};

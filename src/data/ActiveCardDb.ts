@@ -1,2 +1,2 @@
-export const activeCardDb = [];
+export const activeCardDb : object[] & [] = [];
 

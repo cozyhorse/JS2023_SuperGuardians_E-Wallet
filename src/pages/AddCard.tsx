@@ -7,12 +7,13 @@ const placeholderData = [
     cardholder: "FIRSTNAME LASTNAME",
     date: "MM/YY",
     vendor: "blockchain",
+    ccv: 0o0,
   },
 ];
 
 const AddCard = () => {
-  const placeholder = placeholderData.map(({cardnumber, cardholder, date, vendor}) => (
-    <Card key={cardnumber} id={cardnumber} cardnumber={cardnumber} cardholder={cardholder} vendor={vendor} date={date} />
+  const placeholder = placeholderData.map(({cardnumber, cardholder, date, vendor, ccv}) => (
+    <Card key={cardnumber} id={+cardnumber} cardnumber={cardnumber} cardholder={cardholder} vendor={vendor} date={date} ccv={ccv} color={""} backgroundColor={""} onClick={() => console.log("test")} />
   )) 
   return (
     <>

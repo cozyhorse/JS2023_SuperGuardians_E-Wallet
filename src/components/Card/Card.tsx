@@ -1,16 +1,13 @@
-import Bitcoin from "../../assets/img/Bitcoin-logo.svg";
-
-import Blockchain from "../../assets/img/chain-logo.svg";
-
-import Evilcorp from "../../assets/img/Bitcoin-logo.svg";
-import Ninja from "../../assets/img/Bitcoin-logo.svg";
-
+import bitcoin from "../../assets/img/BitCoin.svg";
+import blockchain from "../../assets/img/BlockChain.svg";
 import chip from "../../assets/img/chip-transformed.png";
-
-import Group from "../../assets/img/Group.svg";
-import Subtract from "../../assets/img/Subtract.svg";
+import ninjabank from "../../assets/img/NinjaBank.svg";
+import evilcorp from "../../assets/img/EvilCorp.svg";
 import "./Card.scss";
 import { FaWifi } from "react-icons/fa6";
+import { props } from "../../constants/Constants";
+
+
 
 const Card = ({
   id,
@@ -21,24 +18,26 @@ const Card = ({
   color,
   backgroundColor,
   onClick,
-}) => {
+}: props) => {
   let iconSrc = "";
-  if (vendor === "ninja") {
-    iconSrc = Ninja;
-  } else if (vendor === "evilcorp") {
-    iconSrc = Evilcorp;
-  } else if (vendor === "blockchain") {
-    iconSrc = Blockchain;
-  } else {
-    iconSrc = Bitcoin;
+
+  const icons = {
+  bitcoin,
+  blockchain,
+  ninjabank,
+  evilcorp
+} as object & string
+  //Check if vendor exists and matches a vendor in icons then set iconsrc to found vendor
+  if (vendor && icons[vendor]) {
+    iconSrc = icons[vendor];
   }
+
   return (
     <div
       className="card-container"
       onClick={onClick}
       key={id}
       style={{ backgroundColor: backgroundColor, color: color }}
-      
     >
       <div className="card-container__row">
         <div>
