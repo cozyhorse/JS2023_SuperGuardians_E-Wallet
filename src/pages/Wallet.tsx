@@ -2,13 +2,26 @@ import AddACard from "../components/Button/Add-A-Card";
 import Card from "../components/Card/Card";
 import { cardDb } from "../data/CardDb";
 import "./Wallet.scss";
+import { activeCardDb } from "../data/ActiveCardDb";
+import { useState } from "react";
+
+
+
 
 const Wallet = () => {
-  const cards = cardDb.map((card) => (
-    // if(card.vendor === "bitcoin") {
-    // const backgroundStyle = "rgba(255, 174, 52, 1)";
-    // }
+  const [newCards, setCards] = useState(cardDb);
+  const getActiveCard =(cardId) => {
+    activeCardDb.push(cardId);
+    const updatedCards = newCards.filter((card) => card.id !== cardId)
+    setCards(updatedCards);
+    console.log(activeCardDb);
+    console.log(updatedCards)
+    if (activeCardDb.length === 1) {   // Skicka bort / tillbaka det aktiva kortet
+      
+    }
+  };
 
+  const cards = newCards.map((card) => (
     <Card
       key={card.id}
       id={card.id}
@@ -18,6 +31,7 @@ const Wallet = () => {
       vendor={card.vendor}
       color={card.color}
       backgroundColor={card.backgroundColor}
+      onClick={()=> getActiveCard(card)}
     />
   ));
 

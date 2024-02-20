@@ -20,6 +20,7 @@ const Card = ({
   vendor,
   color,
   backgroundColor,
+  onClick,
 }) => {
   let iconSrc = "";
   if (vendor === "ninja") {
@@ -34,8 +35,10 @@ const Card = ({
   return (
     <div
       className="card-container"
+      onClick={onClick}
       key={id}
       style={{ backgroundColor: backgroundColor, color: color }}
+      
     >
       <div className="card-container__row">
         <div>
