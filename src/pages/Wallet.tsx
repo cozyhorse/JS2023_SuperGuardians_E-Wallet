@@ -50,12 +50,14 @@ const Wallet = () => {
 
   return (
     <>
+    <div className="e-walletContainer ">
       <h2>E-WALLET</h2>
       <h4 className="activeCard-title">ACTIVE CARD</h4>
       <div className="activeCard">{activeCardDom}</div>
       <div className="cardStack">{cards}</div>
 
       <AddACard />
+      </div>
     </>
   );
 };
