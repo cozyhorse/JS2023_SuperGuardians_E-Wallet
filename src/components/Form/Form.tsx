@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import "./Form.scss";
 import { SyntheticEvent, useState } from "react";
 // import { Card } from "../../constants/Constants";
@@ -43,6 +44,10 @@ const Form = () => {
       color: color,
       zIndex: cardDb.length + 1,
     });
+    const navigate = useNavigate()
+   
+     navigate("/")
+  
     console.log("cardDb", cardDb);
   };
 

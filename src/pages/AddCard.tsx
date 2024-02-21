@@ -1,6 +1,7 @@
 import Form from "../components/Form/Form";
 import BackButton from "../components/Button/BackButton";
 import Card from "../components/Card/Card.tsx";
+import "./AddCard.scss";
 const placeholderData = [
   {
     cardnumber: "XXXX XXXX XXXX XXXX",
@@ -17,10 +18,12 @@ const AddCard = () => {
   )) 
   return (
     <>
-      <h1>ADD CARD</h1>
+    <div className="addCardContainer">
+      <h1>ADD A NEW CARD</h1>
       {placeholder}
       <Form />
       <BackButton />
+      </div>
     </>
   );
 };
