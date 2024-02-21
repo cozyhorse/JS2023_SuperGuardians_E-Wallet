@@ -1,0 +1,5 @@
+@mixin primary-btn($bgColor, $borderColor, $fontColor) {
+  background-color: $bgColor;
+  color: $fontColor;
+  border: 0.0625rem solid $borderColor;
+}
