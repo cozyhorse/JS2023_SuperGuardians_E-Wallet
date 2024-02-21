@@ -10,7 +10,6 @@ export type CardType =
     vendor: string;
     backgroundColor: string;
     color: string;
-    zIndex: number;
   };
 
   export type props = {

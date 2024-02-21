@@ -7,8 +7,7 @@ import "./Card.scss";
 import { FaWifi } from "react-icons/fa6";
 import { props } from "../../constants/Constants";
 
-
-
+// Varje card förväntas få in alla dessa props (parametrar). Deklarerat i Wallet.tsx. Varje key behövs för att kunna använda värden i kortet, för att skriva ut dem på kortet sen.
 const Card = ({
   id,
   cardnumber,
@@ -32,7 +31,7 @@ const Card = ({
     iconSrc = icons[vendor];
   }
 
-  return (
+  return (  // Här använder vi propsen / parametrarna som innehåller värdet, och lägger på rätt plats i kortet.
     <div
       className="card-container"
       onClick={onClick}

@@ -1,8 +1,6 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom"; // Outlet är den komponent som byts ut vid t.ex. klick.
 
-type Props = {};
-
-const RootLayout = (props: Props) => {
+const RootLayout = () => {
   return (
     <>
       <main>

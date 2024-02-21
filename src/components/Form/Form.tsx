@@ -1,28 +1,28 @@
 import { useNavigate } from 'react-router-dom'
 import "./Form.scss";
 import { SyntheticEvent, useState } from "react";
-// import { Card } from "../../constants/Constants";
 import { cardDb } from "../../data/CardDb";
 
 const Form = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({ // Här sparas det vi valt.
     cardnumber: "",
     cardholder: "",
     ccv: "",
     date: "",
     vendor: "blockchain",
   });
-
+  // När man submittar så tar funktionen värdet genom att spara en kopia (ett objekt) av det som skrevs in (ändringen) i formData.
   const handleChange = (event: SyntheticEvent) => {
     setFormData({ ...formData, [(event.target as HTMLInputElement).name]: (event.target as HTMLInputElement).value });
   };
-
+  // Här submittas värdet. Vi förhindrar att sidan laddas om.
+  //Körs när man klickar på submit-knappen.
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-   // console.log("formData", formData);
 
     let backgroundColor = "";
     let color = "";
+    // Här bestäms utseendet på kortet beroende på vilken vendor som valts.
     if (formData.vendor === "bitcoin") {
       backgroundColor = "rgba(255, 174, 52, 1)";
       color = "black";
@@ -36,24 +36,23 @@ const Form = () => {
       backgroundColor = "rgba(243, 51, 85, 1)";
       color = "white";
     }
-
+    // Vi pushar in en kopia av det objekt vi fått ovanför. 
     cardDb.push({
       ...formData,
-      id: cardDb.length + 1,
+      id: cardDb.length + 1,  // Anpassas efter index och sätter id.
       backgroundColor: backgroundColor,
       color: color,
-      zIndex: cardDb.length + 1,
     });
-    const navigate = useNavigate()
+    // const navigate = useNavigate()  // FIXA SEN!
    
-     navigate("/")
+    //  navigate("/")
   
     console.log("cardDb", cardDb);
   };
 
   return (
     <>
-      <form className="form" onSubmit={handleSubmit} action="">
+      <form className="form" onSubmit={handleSubmit} action=""> 
         <section>
           <label htmlFor="cardnumber">CARD NUMBER</label>
           <input
@@ -72,9 +71,9 @@ const Form = () => {
             id="cardholder"
             name="cardholder"
             type="text"
-            pattern="^[A-Za-zÅÄÖåäö\s]*$" // Reg ex
+            pattern="^[A-Za-zÅÄÖåäö\s]*$" // Regular expression.
             value={formData.cardholder}
-            onChange={handleChange}
+            onChange={handleChange} // Här körs handleChange-funktionen.
           />
         </section>
         <section className="date-ccv">
@@ -101,7 +100,7 @@ const Form = () => {
         </section>
         <section>
           <label htmlFor="vendor">VENDOR</label>
-          <select
+          <select   // Meny för att välja vendor.
             name="vendor"
             id="vendor"
             value={formData.vendor}
@@ -113,7 +112,7 @@ const Form = () => {
             <option value="evilcorp">Evil Corp</option>
           </select>
         </section>
-        <button type="submit">ADD CARD</button>
+        <button type="submit">ADD CARD</button> 
       </form>
     </>
   );
