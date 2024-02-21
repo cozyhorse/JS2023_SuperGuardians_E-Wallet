@@ -1,17 +1,17 @@
 import "./Form.scss";
-import { SyntheticEvent, useState } from "react";
+import { SyntheticEvent, useState, useEffect } from "react";
 import { cardDb } from "../../data/CardDb";
 
 const Form = () => {
   const [formData, setFormData] = useState({
-    // Här sparas det vi valt.
     cardnumber: "",
     cardholder: "",
     ccv: "",
     date: "",
     vendor: "blockchain",
   });
-  // När man submittar så tar funktionen värdet genom att spara en kopia (ett objekt) av det som skrevs in (ändringen) i formData.
+  const [formIsValid, setFormIsValid] = useState(false);
+
   const handleChange = (event: SyntheticEvent) => {
     setFormData({
       ...formData,
@@ -20,34 +20,47 @@ const Form = () => {
       ).value,
     });
   };
-  // Här submittas värdet. Vi förhindrar att sidan laddas om.
-  //Körs när man klickar på submit-knappen.
+
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
+    if (formIsValid) {
+      let backgroundColor = "";
+      let color = "white";
 
-    let backgroundColor = "";
-    let color = "white";
-    // Här bestäms utseendet på kortet beroende på vilken vendor som valts.
-    if (formData.vendor === "bitcoin") {
-      backgroundColor = "rgba(255, 174, 52, 1)";
-      color = "black";
-    } else if (formData.vendor === "ninjabank") {
-      backgroundColor = "rgba(34, 34, 34, 1)";
-    } else if (formData.vendor === "blockchain") {
-      backgroundColor = "rgba(139, 88, 249, 1)";
-    } else {
-      backgroundColor = "rgba(243, 51, 85, 1)";
+      if (formData.vendor === "bitcoin") {
+        backgroundColor = "rgba(255, 174, 52, 1)";
+        color = "black";
+      } else if (formData.vendor === "ninjabank") {
+        backgroundColor = "rgba(34, 34, 34, 1)";
+      } else if (formData.vendor === "blockchain") {
+        backgroundColor = "rgba(139, 88, 249, 1)";
+      } else {
+        backgroundColor = "rgba(243, 51, 85, 1)";
+      }
+
+      cardDb.push({
+        ...formData,
+        id: cardDb.length + 1,
+        backgroundColor: backgroundColor,
+        color: color,
+      });
+
+      console.log("cardDb", cardDb);
     }
-    // Vi pushar in en kopia av det objekt vi fått ovanför.
-    cardDb.push({
-      ...formData,
-      id: cardDb.length + 1, // Anpassas efter index och sätter id.
-      backgroundColor: backgroundColor,
-      color: color,
-    });
-
-    console.log("cardDb", cardDb);
   };
+
+  useEffect(() => {
+    if (
+      formData.cardnumber.length === 16 &&
+      formData.cardholder.length > 3 &&
+      formData.date.length === 4 &&
+      formData.ccv.length === 3
+    ) {
+      setFormIsValid(true);
+    } else {
+      setFormIsValid(false);
+    }
+  }, [formData]);
 
   return (
     <>
@@ -71,9 +84,9 @@ const Form = () => {
             id="cardholder"
             name="cardholder"
             type="text"
-            pattern="^[A-Za-zÅÄÖåäö\s]*$" // Regular expression.
+            pattern="^[A-Za-zÅÄÖåäö\s]*$"
             value={formData.cardholder}
-            onChange={handleChange} // Här körs handleChange-funktionen.
+            onChange={handleChange}
             minLength={4}
             maxLength={30}
           />
@@ -108,7 +121,7 @@ const Form = () => {
         </section>
         <section>
           <label htmlFor="vendor">VENDOR</label>
-          <select // Meny för att välja vendor.
+          <select
             name="vendor"
             id="vendor"
             value={formData.vendor}
