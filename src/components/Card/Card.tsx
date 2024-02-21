@@ -21,17 +21,18 @@ const Card = ({
   let iconSrc = "";
 
   const icons = {
-  bitcoin,
-  blockchain,
-  ninjabank,
-  evilcorp
-} as object & string
+    bitcoin,
+    blockchain,
+    ninjabank,
+    evilcorp,
+  } as object & string;
   //Check if vendor exists and matches a vendor in icons then set iconsrc to found vendor
   if (vendor && icons[vendor]) {
     iconSrc = icons[vendor];
   }
 
-  return (  // Här använder vi propsen / parametrarna som innehåller värdet, och lägger på rätt plats i kortet.
+  return (
+    // Här använder vi propsen / parametrarna som innehåller värdet, och lägger på rätt plats i kortet.
     <div
       className="card-container"
       onClick={onClick}
@@ -58,7 +59,9 @@ const Card = ({
         </div>
         <div className="card-container__column">
           <p className="cardHolder-Opacity">VALID THRU</p>
-          <p className="card-text-style date">{date}</p>
+          <p className="card-text-style date">
+            {date.toString().slice(0, 2)}/{date.toString().slice(2)}
+          </p>
         </div>
       </div>
     </div>

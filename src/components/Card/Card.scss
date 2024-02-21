@@ -54,10 +54,6 @@ img {
   align-items: space-between;
 }
 
-.date {
-  text-align: right;
-}
-
 .cardHolder-Opacity {
   opacity: 0.8;
   font-family: "PT Mono", monospace;
@@ -70,6 +66,7 @@ img {
   font-family: "PT Mono", monospace;
   font-size: 18px;
   line-height: 20.16px;
+  text-align: left;
 }
 h1 {
   width: 250px;
@@ -82,4 +79,7 @@ h1 {
   line-height: 35px;
   letter-spacing: 0em;
   text-align: center;
+}
+.date {
+  text-align: right;
 }
