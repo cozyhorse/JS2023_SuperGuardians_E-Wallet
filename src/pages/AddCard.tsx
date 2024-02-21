@@ -1,5 +1,5 @@
 import Form from "../components/Form/Form";
-import BackButton from "../components/Button/BackButton";
+
 import Card from "../components/Card/Card.tsx";
 import "./AddCard.scss";
 const placeholderData = [
@@ -37,7 +37,6 @@ const AddCard = () => {
         <h4>NEW CARD</h4>
         {placeholder}
         <Form />
-        <BackButton />
       </div>
     </>
   );

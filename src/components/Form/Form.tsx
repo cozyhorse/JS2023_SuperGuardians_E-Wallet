@@ -1,8 +1,10 @@
 import "./Form.scss";
 import { SyntheticEvent, useState, useEffect } from "react";
 import { cardDb } from "../../data/CardDb";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     cardnumber: "",
     cardholder: "",
@@ -38,14 +40,16 @@ const Form = () => {
         backgroundColor = "rgba(243, 51, 85, 1)";
       }
 
-      cardDb.push({
+      const newCard = {
         ...formData,
         id: cardDb.length + 1,
         backgroundColor: backgroundColor,
         color: color,
-      });
+      };
 
-      console.log("cardDb", cardDb);
+      cardDb.push(newCard);
+
+      navigate("/");
     }
   };
 
