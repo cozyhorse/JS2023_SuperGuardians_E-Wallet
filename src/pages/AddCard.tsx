@@ -9,22 +9,35 @@ const placeholderData = [
     date: "MM/YY",
     vendor: "blockchain",
     ccv: 0o0,
-    backgroundColor: "grey",
+    backgroundColor: "rgba(208, 208, 208, 1)",
   },
 ];
 // Här importerar vi placeholder-data till kortet.
 const AddCard = () => {
-  const placeholder = placeholderData.map(({cardnumber, cardholder, date, vendor, ccv, backgroundColor}) => (
-    <Card key={cardnumber} id={+cardnumber} cardnumber={cardnumber} cardholder={cardholder} vendor={vendor} date={date} ccv={ccv} color={""} backgroundColor={backgroundColor} onClick={() => console.log("test")} />
-  )) 
+  const placeholder = placeholderData.map(
+    ({ cardnumber, cardholder, date, vendor, ccv, backgroundColor }) => (
+      <Card
+        key={cardnumber}
+        id={+cardnumber}
+        cardnumber={cardnumber}
+        cardholder={cardholder}
+        vendor={vendor}
+        date={date}
+        ccv={ccv}
+        color={""}
+        backgroundColor={backgroundColor}
+        onClick={() => console.log("test")}
+      />
+    )
+  );
   return (
     <>
-    <div className="addCardContainer">
-      <h1>ADD A NEW CARD</h1>
-      <h4>NEW CARD</h4>
-      {placeholder}
-      <Form />
-      <BackButton />
+      <div className="addCardContainer">
+        <h1>ADD A NEW BANK CARD</h1>
+        <h4>NEW CARD</h4>
+        {placeholder}
+        <Form />
+        <BackButton />
       </div>
     </>
   );
