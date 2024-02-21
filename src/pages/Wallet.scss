@@ -1,11 +1,11 @@
 .cardStack .card-container {
   height: 60px;
   overflow: hidden;
-  border-radius: 0px;
+  border-radius: 5px 5px 0px 0px;
 }
 .cardStack .card-container:last-child {
   height: auto;
-  border-radius: 5px;
+  border-radius: 5px 5px 5px 5px;
 }
 
 main {
