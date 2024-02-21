@@ -5,9 +5,6 @@ import "./Wallet.scss";
 import { useState } from "react";
 import { props } from "../constants/Constants";
 
-
-
-
 const Wallet = () => {
   const [newCards, setCards] = useState(cardDb);
   const [activeCard, setActiveCard] = useState(null);

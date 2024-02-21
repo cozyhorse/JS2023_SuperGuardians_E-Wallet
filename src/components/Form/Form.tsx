@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import "./Form.scss";
 import { SyntheticEvent, useState } from "react";
 import { cardDb } from "../../data/CardDb";
@@ -43,9 +42,6 @@ const Form = () => {
       backgroundColor: backgroundColor,
       color: color,
     });
-    // const navigate = useNavigate()  // FIXA SEN!
-   
-    //  navigate("/")
   
     console.log("cardDb", cardDb);
   };
