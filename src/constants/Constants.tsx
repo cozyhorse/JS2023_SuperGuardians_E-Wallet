@@ -1,18 +1,6 @@
 import { MouseEventHandler } from "react";
 
-export type CardType =
-  {
-    id: number
-    cardnumber: string;
-    cardholder: string;
-    ccv: string;
-    date: number | string;
-    vendor: string;
-    backgroundColor: string;
-    color: string;
-  };
-
-  export type props = {
+export type props = {
     id: number
     cardnumber: string;
     cardholder: string;

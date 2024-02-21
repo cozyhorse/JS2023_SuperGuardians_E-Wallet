@@ -12,14 +12,14 @@ const Wallet = () => {
   const [newCards, setCards] = useState(cardDb);
   const [activeCard, setActiveCard] = useState(null);
   // Hämtar det klickade kortet.
-  const getActiveCard =(cardId: number, card: object) => { setActiveCard(card)
+  const getActiveCard =(cardId: number, card: null) => { setActiveCard(card)
    // Filtrerar vår array med objekt och jämför activeCardId med cardId.
-  const updatedCards = cardDb.filter((activeCard: props) => activeCard.id !== cardId)
+  const updatedCards = cardDb.filter((activeCard) => activeCard.id !== cardId)
     setCards(updatedCards);
   };
 
   // Här skriver vi ut hur korten ser ut innehåll (text, ikoner), per objekt som hittas.
-  const cards = newCards.map((card: props) => (
+  const cards = newCards.map((card) => (
     <Card
       key={card.id}
       id={card.id}
@@ -28,13 +28,13 @@ const Wallet = () => {
       date={card.date}
       vendor={card.vendor}
       color={card.color}
-      ccv={card.ccv}
+      ccv={+card.ccv}
       backgroundColor={card.backgroundColor}
       onClick={()=> getActiveCard(card.id, card)}
     />
   ));
     // Här skriver vi ut hur korten ser ut innehåll (text, ikoner), på det klickade kortet.
-  let activeCardDom = "noCardSelected"; // När inget kort är valt.
+  let activeCardDom; // När inget kort är valt.
   if (activeCard) {
     activeCardDom  = 
     <Card
