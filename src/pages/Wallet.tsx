@@ -25,7 +25,7 @@ const Wallet = () => {
       date={card.date}
       vendor={card.vendor}
       color={card.color}
-      ccv={+card.ccv}
+      ccv={card.ccv}
       backgroundColor={card.backgroundColor}
       onClick={()=> getActiveCard(card.id, card)}
     />
