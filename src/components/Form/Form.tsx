@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     cardnumber: "",
     cardholder: "",
@@ -21,6 +22,7 @@ const Form = () => {
         event.target as HTMLInputElement
       ).value,
     });
+    setErrorMessage("");
   };
 
   const handleSubmit = (e: SyntheticEvent) => {
@@ -51,7 +53,7 @@ const Form = () => {
 
       navigate("/");
     } else {
-      console.log("form not completed.");
+      setErrorMessage("Formulär ej korrekt ifyllt");
     }
   };
 
@@ -144,6 +146,7 @@ const Form = () => {
             <option value="evilcorp">Evil Corp</option>
           </select>
         </section>
+        <p className="form__errorMessage">{errorMessage}</p>
         <button type="submit">ADD CARD</button>
       </form>
     </>
