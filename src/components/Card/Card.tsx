@@ -55,7 +55,7 @@ const Card = ({
       <div className="card-container__row">
         <div className="card-container__column">
           <p className="cardHolder-Opacity">CARDHOLDER NAME</p>
-          <p className="card-text-style">{cardholder}</p>
+          <p className="card-text-style">{cardholder.toUpperCase()}</p>
         </div>
         <div className="card-container__column">
           <p className="cardHolder-Opacity">VALID THRU</p>
