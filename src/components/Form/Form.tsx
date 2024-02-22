@@ -147,7 +147,9 @@ const Form = () => {
           </select>
         </section>
         <p className="form__errorMessage">{errorMessage}</p>
-        <button type="submit">ADD CARD</button>
+        <button className="form__btnSubmit" type="submit">
+          ADD CARD
+        </button>
       </form>
     </>
   );
