@@ -4,7 +4,7 @@ import Card from "../components/Card/Card.tsx";
 import "./AddCard.scss";
 const placeholderData = [
   {
-    cardnumber: "XXXX XXXX XXXX XXXX",
+    cardnumber: "XXXXXXXXXXXXXXXX",
     cardholder: "FIRSTNAME LASTNAME",
     date: "MMYY",
     vendor: "bitcoin",

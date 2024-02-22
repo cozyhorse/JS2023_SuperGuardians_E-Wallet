@@ -51,7 +51,12 @@ const Card = ({
         </div>
       </div>
 
-      <p className="card-number">{cardnumber}</p>
+      <p className="card-number">
+        <span>{cardnumber.toString().slice(0, 4)}</span>
+        <span>{cardnumber.toString().slice(4, 8)}</span>
+        <span> {cardnumber.toString().slice(8, 12)}</span>
+        <span> {cardnumber.toString().slice(12, 16)}</span>
+      </p>
       <div className="card-container__row">
         <div className="card-container__column">
           <p className="cardHolder-Opacity">CARDHOLDER NAME</p>
