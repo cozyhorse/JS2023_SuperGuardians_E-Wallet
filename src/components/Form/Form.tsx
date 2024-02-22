@@ -10,7 +10,7 @@ const Form = () => {
     cardholder: "",
     ccv: "",
     date: "",
-    vendor: "blockchain",
+    vendor: "bitcoin",
   });
   const [formIsValid, setFormIsValid] = useState(false);
 

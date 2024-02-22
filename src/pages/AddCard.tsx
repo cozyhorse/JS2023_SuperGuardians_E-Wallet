@@ -7,7 +7,7 @@ const placeholderData = [
     cardnumber: "XXXX XXXX XXXX XXXX",
     cardholder: "FIRSTNAME LASTNAME",
     date: "MMYY",
-    vendor: "blockchain",
+    vendor: "bitcoin",
     ccv: 0o0,
     backgroundColor: "rgba(208, 208, 208, 1)",
   },
