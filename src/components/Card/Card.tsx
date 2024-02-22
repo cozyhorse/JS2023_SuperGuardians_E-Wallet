@@ -20,6 +20,7 @@ const Card = ({
   onClick,
 }: props) => {
   let iconSrc = "";
+
 //Lagt in alla icon imports i ett objekt som heter icons
   const icons = {
     bitcoin,
@@ -27,6 +28,7 @@ const Card = ({
     ninjabank,
     evilcorp,
   } as object & string;
+  
   //Check if vendor exists and matches a vendor in icons then set iconsrc to found vendor
   if (vendor && icons[vendor]) {
     iconSrc = icons[vendor];
