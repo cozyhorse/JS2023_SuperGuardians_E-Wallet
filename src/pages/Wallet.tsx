@@ -44,13 +44,12 @@ const Wallet = () => {
       ccv={activeCard.ccv}
       color={activeCard.color}
       backgroundColor={activeCard.backgroundColor}
-      onClick={()=> getActiveCard(activeCard.id, activeCard)}
     />
   }
 
   return (
     <>
-    <div className="e-walletContainer ">
+    <div className="e-walletContainer">
       <h2>E-WALLET</h2>
       <h4 className="activeCard-title">ACTIVE CARD</h4>
       <div className="activeCard">{activeCardDom}</div>
