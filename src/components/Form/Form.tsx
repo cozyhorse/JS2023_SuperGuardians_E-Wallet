@@ -54,11 +54,16 @@ const Form = () => {
   };
 
   useEffect(() => {
+    const month = parseInt(formData.date.substring(0, 2), 10);
+    const year = parseInt(formData.date.substring(2), 10);
     if (
       formData.cardnumber.length === 16 &&
       formData.cardholder.length > 3 &&
       formData.date.length === 4 &&
-      formData.ccv.length === 3
+      formData.ccv.length === 3 &&
+      month >= 1 &&
+      month <= 12 &&
+      year >= 22
     ) {
       setFormIsValid(true);
     } else {
