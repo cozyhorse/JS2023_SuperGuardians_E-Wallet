@@ -3,7 +3,6 @@ import Card from "../components/Card/Card";
 import { cardDb } from "../data/CardDb";
 import "./Wallet.scss";
 import { useState } from "react";
-import { props } from "../constants/Constants";
 
 const Wallet = () => {
   const [newCards, setCards] = useState(cardDb);
