@@ -50,6 +50,8 @@ const Form = () => {
       cardDb.push(newCard);
 
       navigate("/");
+    } else {
+      console.log("form not completed.");
     }
   };
 
