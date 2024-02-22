@@ -3,9 +3,9 @@ import blockchain from "../../assets/img/BlockChain.svg";
 import chip from "../../assets/img/chip-transformed.png";
 import ninjabank from "../../assets/img/NinjaBank.svg";
 import evilcorp from "../../assets/img/EvilCorp.svg";
-import "./Card.scss";
 import wifiIcon from "../../assets/img/wifiIcon.png";
 import { props } from "../../constants/Constants";
+import "./Card.scss";
 
 // Varje card förväntas få in alla dessa props (parametrar). Deklarerat i Wallet.tsx. Varje key behövs för att kunna använda värden i kortet, för att skriva ut dem på kortet sen.
 const Card = ({
