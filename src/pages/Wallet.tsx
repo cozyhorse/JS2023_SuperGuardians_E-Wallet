@@ -31,7 +31,7 @@ const Wallet = () => {
     />
   ));
   
-   /* Här kollar vi om vi får tillbaka meningsful data och renderar objektet eller inte.
+   /* Här kollar vi om vi får tillbaka meningsfull data och renderar objektet eller inte.
       Object.value() hämtar en array med alla värden i activeCard
      sen kopplar vi det med .some() för att kolla om det finns något som uppfyller villkoret som är satt
      vilket är =="" som kollar om något värde är tomt så sätts activeCardDom som null annars så skrivs det ut

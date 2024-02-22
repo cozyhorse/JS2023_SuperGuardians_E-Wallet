@@ -4,7 +4,7 @@ export interface props {
     id: number
     cardnumber: string;
     cardholder: string;
-    ccv: string;
+    ccv: string | number;
     date: number | string;
     vendor: string;
     color: string;
@@ -14,7 +14,7 @@ export interface props {
 
 
 export const inactive_card = {
-    id: -1, // or any other unique identifier representing an inactive state
+    id: -1,
     cardnumber: "",
     cardholder: "",
     date: "",
