@@ -1,15 +1,15 @@
 import AddACard from "../components/Button/Add-A-Card";
 import Card from "../components/Card/Card";
-import { props } from "../constants/Constants";
+import { props, inactive_card } from "../constants/Constants";
 import { cardDb } from "../data/CardDb";
 import "./Wallet.scss";
 import { useState } from "react";
 
 const Wallet = () => {
   const [newCards, setCards] = useState(cardDb);
-  const [activeCard, setActiveCard] = useState<props | null>(null);
+  const [activeCard, setActiveCard] = useState<props>(inactive_card);
   // Hämtar det klickade kortet.
-  const getActiveCard =(cardId: number, card: null) => { setActiveCard(card)
+  const getActiveCard =(cardId: number, card: props) => { setActiveCard(card)
    // Filtrerar vår array med objekt och jämför activeCardId med cardId.
   const updatedCards = cardDb.filter((activeCard) => activeCard.id !== cardId)
     setCards(updatedCards);
@@ -30,9 +30,16 @@ const Wallet = () => {
       onClick={()=> getActiveCard(card.id, card)}
     />
   ));
-    // Här skriver vi ut hur korten ser ut innehåll (text, ikoner), på det klickade kortet.
+  
+   /* Här kollar vi om vi får tillbaka meningsful data och renderar objektet eller inte.
+      Object.value() hämtar en array med alla värden i activeCard
+     sen kopplar vi det med .some() för att kolla om det finns något som uppfyller villkoret som är satt
+     vilket är =="" som kollar om något värde är tomt så sätts activeCardDom som null annars så skrivs det ut
+    */
   let activeCardDom; // När inget kort är valt.
-  if (activeCard) {
+  if (Object.values(activeCard).some(value => value == "")) {
+    activeCardDom = null
+  }else{
     activeCardDom  = 
     <Card
       key={activeCard.id}

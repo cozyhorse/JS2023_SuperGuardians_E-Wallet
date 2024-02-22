@@ -11,3 +11,15 @@ export interface props {
     backgroundColor: string;
     onClick?: MouseEventHandler
 }
+
+
+export const inactive_card = {
+    id: -1, // or any other unique identifier representing an inactive state
+    cardnumber: "",
+    cardholder: "",
+    date: "",
+    vendor: "",
+    ccv: "",
+    color: "",
+    backgroundColor: ""
+  };
