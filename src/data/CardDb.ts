@@ -1,5 +1,3 @@
-// import { Card } from "../constants/Constants.tsx";
+import { props } from "../constants/Constants";
 
-import { CardType } from "../constants/Constants";
-
-export const cardDb: CardType[] = [];
+export const cardDb: props[] = [];

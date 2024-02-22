@@ -1,12 +1,13 @@
 import AddACard from "../components/Button/Add-A-Card";
 import Card from "../components/Card/Card";
+import { props } from "../constants/Constants";
 import { cardDb } from "../data/CardDb";
 import "./Wallet.scss";
 import { useState } from "react";
 
 const Wallet = () => {
   const [newCards, setCards] = useState(cardDb);
-  const [activeCard, setActiveCard] = useState(null);
+  const [activeCard, setActiveCard] = useState<props | null>(null);
   // Hämtar det klickade kortet.
   const getActiveCard =(cardId: number, card: null) => { setActiveCard(card)
    // Filtrerar vår array med objekt och jämför activeCardId med cardId.
